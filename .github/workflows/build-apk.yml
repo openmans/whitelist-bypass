@@ -17,13 +17,12 @@ jobs:
           distribution: temurin
           java-version: '21'
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Install platforms/build-tools
+      - name: Android SDK (preinstalled runner image)
         run: |
-          sdkmanager --install "platforms;android-36" "build-tools;36.0.0" >/dev/null || true
-          yes | sdkmanager --licenses >/dev/null 2>&1 || true
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses >/dev/null 2>&1 || true
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-36" "build-tools;36.0.0" >/dev/null 2>&1 || true
+          ls "$ANDROID_HOME/platforms" || true
 
       - name: Gradle cache
         uses: actions/cache@v4

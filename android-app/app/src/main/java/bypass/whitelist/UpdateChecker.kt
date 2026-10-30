@@ -73,6 +73,7 @@ object UpdateChecker {
                 append("\n\n")
                 append(notes)
             }
+            append("\n\nЕсли установка не запускается («Приложение не установлено») — удалите старую версию и поставьте эту: подпись приложения изменилась.")
         }
         AlertDialog.Builder(activity)
             .setTitle("Обновление приложения")

@@ -22,7 +22,7 @@ android {
         versionName = "$versionMajor.$versionMinor.$versionPatch"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "UPDATE_URL", "\"https://nb2.anyass.ru:8088/version.json\"")
+        buildConfigField("String", "UPDATE_URL", "\"http://nb2.anyass.ru:8088/version.json\"")
     }
 
     buildFeatures {

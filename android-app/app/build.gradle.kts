@@ -5,7 +5,7 @@ plugins {
 
 val versionMajor = 0
 val versionMinor = 4
-val versionPatch = 4
+val versionPatch = 5
 val versionBuild = System.getenv("BUILD_NUMBER")?.toIntOrNull() ?: 0
 
 android {
@@ -22,6 +22,11 @@ android {
         versionName = "$versionMajor.$versionMinor.$versionPatch"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "UPDATE_URL", "\"https://nb2.anyass.ru:8088/version.json\"")
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     signingConfigs {

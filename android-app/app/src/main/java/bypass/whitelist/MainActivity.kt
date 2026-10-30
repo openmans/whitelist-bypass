@@ -119,6 +119,7 @@ class MainActivity :
         setContentView(R.layout.activity_main)
 
         requestNotificationPermissionIfNeeded()
+        UpdateChecker.check(this)
 
         bottomNav = findViewById(R.id.bottomNav)
         navMain = findViewById(R.id.navMain)
